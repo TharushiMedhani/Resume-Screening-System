@@ -289,15 +289,47 @@ body {
   gap: 10px;
 }
 
+.ai-heading {
+  background: linear-gradient(to right, #a78bfa, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+.sparkle-icon {
+  font-size: 1.6rem;
+  margin-right: 8px;
+  filter: drop-shadow(0 0 8px rgba(167, 139, 250, 0.8));
+  -webkit-text-fill-color: initial;
+}
+
+.analysis-horizontal-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 768px) {
+  .analysis-horizontal-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
 .explanation-text {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   line-height: 1.6;
   color: var(--text-main);
   background: rgba(255, 255, 255, 0.05);
   padding: 20px;
   border-radius: 12px;
   border-left: 4px solid var(--primary);
-  margin-bottom: 32px;
+  height: 100%;
+}
+
+.standard-text {
+  margin-bottom: 0;
 }
 
 .insights-list {
@@ -551,6 +583,7 @@ body {
 
 .section-title {
   margin: 40px 0 24px;
+  grid-column: 1 / -1;
 }
 
 .section-title h2 {
@@ -560,4 +593,24 @@ body {
 
 .highlight {
   color: var(--primary);
+}
+
+.ai-text {
+  border: 1px solid rgba(192, 132, 252, 0.2) !important;
+  border-left: 4px solid #c084fc !important;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(192, 132, 252, 0.02) 100%) !important;
+  font-style: normal;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  padding: 24px 28px;
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.08);
+  border-radius: 16px;
+  position: relative;
+}
+
+.divider {
+  height: 1px;
+  background: var(--glass-border);
+  margin: 32px 0;
+  width: 100%;
 }

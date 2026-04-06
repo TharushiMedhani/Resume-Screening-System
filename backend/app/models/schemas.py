@@ -9,7 +9,8 @@ class AnalysisResponse(BaseModel):
     missing_skills: list[str]
     explanation: str
     insights: list[str]
+    ai_explanation: str
     filename: str = ""
 
 class MultiAnalysisResponse(BaseModel):
-    results: list[AnalysisResponse]
+    results: list[AnalysisResponse]

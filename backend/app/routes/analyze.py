@@ -7,6 +7,7 @@ from app.services.preprocess import clean_text
 from app.services.skill_matcher import compare_skills
 from app.services.similarity import calculate_similarity, get_recommendation, generate_analysis
 from app.models.schemas import AnalysisResponse, MultiAnalysisResponse
+from app.services.llm_explainer import generate_ai_explanation
 
 router = APIRouter()
 
@@ -52,6 +53,20 @@ async def process_resume(resume: UploadFile, job_description: str) -> AnalysisRe
         skill_result["missing_skills"]
     )
 
+    ai_explanation = ""
+    try:
+        ai_explanation = generate_ai_explanation(
+            job_description=job_description,
+            resume_skills=skill_result["resume_skills"],
+            matched_skills=skill_result["matched_skills"],
+            missing_skills=skill_result["missing_skills"],
+            match_score=match_score,
+            recommendation=recommendation
+        )
+    except Exception as e:
+        print(f"AI explanation error: {str(e)}")
+        ai_explanation = "AI explanation unavailable at this time."
+
     return AnalysisResponse(
         match_score=match_score,
         recommendation=recommendation,
@@ -61,6 +76,7 @@ async def process_resume(resume: UploadFile, job_description: str) -> AnalysisRe
         missing_skills=skill_result["missing_skills"],
         explanation=explanation,
         insights=insights,
+        ai_explanation=ai_explanation,
         filename=resume.filename
     )
 

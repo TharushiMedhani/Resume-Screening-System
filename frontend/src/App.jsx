@@ -201,8 +201,16 @@ function App() {
             </div>
 
             <div className="analysis-summary card">
-              <h3>Why this score?</h3>
-              <p className="explanation-text">{selectedResult.explanation}</p>
+              <div className="analysis-horizontal-layout">
+                <div className="analysis-col">
+                  <h3 className="ai-heading"><span className="sparkle-icon">✨</span> AI-Powered Detailed Analysis</h3>
+                  <p className="explanation-text ai-text">{selectedResult.ai_explanation || "Generating AI analysis..."}</p>
+                </div>
+                <div className="analysis-col">
+                  <h3>Why this score?</h3>
+                  <p className="explanation-text standard-text">{selectedResult.explanation}</p>
+                </div>
+              </div>
               
               <div className="insights-list">
                 {selectedResult.insights.map((insight, i) => (
