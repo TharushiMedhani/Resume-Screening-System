@@ -8,4 +8,8 @@ class AnalysisResponse(BaseModel):
     matched_skills: list[str]
     missing_skills: list[str]
     explanation: str
-    insights: list[str]
+    insights: list[str]
+    filename: str = ""
+
+class MultiAnalysisResponse(BaseModel):
+    results: list[AnalysisResponse]

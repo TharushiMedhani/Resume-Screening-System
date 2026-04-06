@@ -425,3 +425,139 @@ body {
   font-size: 0.9rem;
   text-align: center;
 }
+
+/* Multi-file list */
+.file-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.file-tag {
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--primary);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.remove-file-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-left: 4px;
+  transition: color 0.2s;
+}
+
+.remove-file-btn:hover {
+  color: var(--danger);
+}
+
+/* Ranking Table */
+.ranking-section {
+  margin-top: 40px;
+}
+
+.ranking-card h3 {
+  margin-bottom: 24px;
+}
+
+.ranking-table-container {
+  overflow-x: auto;
+}
+
+.ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.ranking-table th {
+  padding: 16px;
+  border-bottom: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.ranking-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--glass-border);
+  transition: all 0.2s ease;
+}
+
+.ranking-table tr {
+  cursor: pointer;
+}
+
+.ranking-table tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.ranking-table tr.selected td {
+  background: rgba(99, 102, 241, 0.1);
+  border-bottom-color: var(--primary);
+}
+
+.filename-cell {
+  font-weight: 600;
+  color: var(--text-main);
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.score-badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.score-badge.good { background: rgba(16, 185, 129, 0.2); color: var(--success); }
+.score-badge.okay { background: rgba(245, 158, 11, 0.2); color: var(--warning); }
+.score-badge.poor { background: rgba(239, 68, 68, 0.2); color: var(--danger); }
+
+.view-btn {
+  background: var(--glass-border);
+  border: 1px solid var(--glass-border);
+  color: var(--text-main);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-btn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.section-title {
+  margin: 40px 0 24px;
+}
+
+.section-title h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.highlight {
+  color: var(--primary);
+}
