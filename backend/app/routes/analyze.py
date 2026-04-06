@@ -16,10 +16,15 @@ os.makedirs(UPLOAD_DIR, exist_ok=True)
 async def process_resume(resume: UploadFile, job_description: str) -> AnalysisResponse:
     file_path = os.path.join(UPLOAD_DIR, resume.filename)
     
-    with open(file_path, "wb") as buffer:
-        shutil.copyfileobj(resume.file, buffer)
+    try:
+        with open(file_path, "wb") as buffer:
+            shutil.copyfileobj(resume.file, buffer)
 
-    resume_text = extract_text(file_path)
+        resume_text = extract_text(file_path)
+    finally:
+        # Delete file after text extraction
+        if os.path.exists(file_path):
+            os.remove(file_path)
 
     if not resume_text or not resume_text.strip():
         raise HTTPException(
