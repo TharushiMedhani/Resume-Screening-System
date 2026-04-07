@@ -11,6 +11,7 @@ class AnalysisResponse(BaseModel):
     insights: list[str]
     ai_explanation: str
     filename: str = ""
+    interview_questions: str | None = None
 
 class MultiAnalysisResponse(BaseModel):
     results: list[AnalysisResponse]

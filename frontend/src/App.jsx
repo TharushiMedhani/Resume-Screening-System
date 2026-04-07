@@ -242,6 +242,17 @@ function App() {
                   </div>
                 </div>
               </div>
+
+              {selectedResult.interview_questions && (
+                <div className="interview-section">
+                  <div className="divider"></div>
+                  <h3>Suggested Interview Questions</h3>
+                  <div className="explanation-text ai-text questions-box">
+                    {selectedResult.interview_questions || "N/A"}
+                  </div>
+                </div>
+              )}
+
             </div>
           </div>
         )}
